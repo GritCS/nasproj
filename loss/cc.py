@@ -30,7 +30,7 @@ class CC(nn.Module):
 		return loss
 
 	def get_correlation_matrix(self, feat):
-		feat = F.normalize(feat, p=2, dim=-1)
+		feat = F.normalize(feat, p=2, dim=-1) #dim+input.dim()+1
 		sim_mat  = torch.matmul(feat, feat.t())
 		corr_mat = torch.zeros_like(sim_mat)
 
